@@ -4,8 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="WindowsEditorSlow.MainPage">
     <Button
-        Text="Go to EditorPage"
-        SemanticProperties.Hint="Counts the number of times you click"
+        Text="Go to EditorPage (Slow on Windows)"
         Clicked="OnCounterClicked"
         HorizontalOptions="Fill" />
 </ContentPage>
