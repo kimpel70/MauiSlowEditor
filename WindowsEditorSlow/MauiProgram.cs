@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using WindowsEditorSlow.Handler;
 
 namespace WindowsEditorSlow
 {
@@ -13,10 +14,16 @@ namespace WindowsEditorSlow
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .ConfigureMauiHandlers(handlers =>
+                {
+#if WINDOWS
+                    handlers.AddHandler(typeof(RichEditor), typeof(RichEditorHandler));
+#endif
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
